@@ -6,7 +6,7 @@ I've spent the last two years inside a high-volume cardiology clinic watching cl
 
 ---
 
-## 🧩 Featured Project
+## 🧩 Featured Projects
 
 ### 🏥 [CareFlow](https://careflow.xinyiklin.com) — Full-Stack EHR-Style Workflow App
 A portfolio-grade EHR demo covering scheduling, clinical charting, billing, document management, and organization/facility administration. Modeled on the workflows I see in a real clinic — not generic CRUD.
@@ -20,6 +20,16 @@ A portfolio-grade EHR demo covering scheduling, clinical charting, billing, docu
 
 🔗 **Live demo:** [careflow.xinyiklin.com](https://careflow.xinyiklin.com)
 💻 **Code:** [github.com/xinyiklin/careflow](https://github.com/xinyiklin/careflow)
+
+### 📄 [RoleFit AI](https://github.com/xinyiklin/rolefit-ai) — Local-First Resume Tailoring Workflow
+A local-first webapp that imports a job posting (Workday / Greenhouse), then runs honest, evidence-based AI polish over your resume across Claude, OpenAI, and Gemini — no fabricated achievements, strict recruiter-style review.
+
+- **Job-link import** from Workday and Greenhouse postings
+- **Multi-model AI polish** (Claude / OpenAI / Gemini, via CLI or API) with an evidence-grounded, anti-embellishment prompt
+- **LaTeX export** in Jake's, Awesome-CV, and Deedy templates — Overleaf or local Tectonic
+- **On-disk application pipeline tracker** — everything stays on your machine
+
+💻 **Code:** [github.com/xinyiklin/rolefit-ai](https://github.com/xinyiklin/rolefit-ai)
 
 ---
 
