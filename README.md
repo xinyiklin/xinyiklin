@@ -16,20 +16,33 @@ A portfolio-grade EHR demo covering scheduling, clinical charting, billing, docu
 - **Patient timeline** that unifies appointments, encounters, medications, and allergies into one chronological view via a shared timeline component
 - **Security**: SSN encryption at rest (Fernet), JWT + HTTP-only refresh cookies, CSRF protection, role-based permissions scoped per facility, and an audit log for sensitive actions
 - **Typed end-to-end** via OpenAPI codegen (drf-spectacular + openapi-typescript)
-- **Deployed** on Render (backend) + Vercel (frontend), with Docker Compose for local dev
+- **Deployed** on AWS Amplify (frontend) + Render (backend), with PostgreSQL on Amazon RDS, Cloudflare R2 object storage, and Docker Compose for local dev
 
 🔗 **Live demo:** [careflow.xinyiklin.com](https://careflow.xinyiklin.com)
 💻 **Code:** [github.com/xinyiklin/careflow](https://github.com/xinyiklin/careflow)
 
-### 📄 [RoleFit AI](https://github.com/xinyiklin/rolefit-ai) — Local-First Resume Tailoring Workflow
-A local-first webapp that imports a job posting (Workday / Greenhouse), then runs honest, evidence-based AI polish over your resume across Claude, OpenAI, and Gemini — no fabricated achievements, strict recruiter-style review.
+### 📄 [RoleFit AI](https://xinyiklin.com/rolefit-ai/) — Local-First Resume Tailoring Workflow
+A local-first webapp that imports a job posting, scores how well your resume actually fits it, and runs honest, evidence-based AI polish — no fabricated achievements, strict recruiter-style review.
 
-- **Job-link import** from Workday and Greenhouse postings
-- **Multi-model AI polish** (Claude / OpenAI / Gemini, via CLI or API) with an evidence-grounded, anti-embellishment prompt
-- **LaTeX export** in Jake's, Awesome-CV, and Deedy templates — Overleaf or local Tectonic
-- **On-disk application pipeline tracker** — everything stays on your machine
+- **Recruiter-style review engine** that scores resume-to-role fit, capping scores at what the resume actually evidences
+- **Multi-provider AI polish** across 10+ hosted, local, and CLI backends (Claude / OpenAI / Gemini / OpenRouter / Ollama and more) with a deterministic local fallback
+- **Anti-fabrication by design**: schema-validated, section-scoped suggestions surfaced as accept/edit/discard diffs, a grounded-output sanitizer, and 120+ offline eval probes
+- **Job-link import** (Workday / Greenhouse and more) plus a browser fit-check extension
+- **LaTeX/PDF export** via Tectonic and an on-disk application tracker — everything stays on your machine
 
+🔗 **Live demo:** [xinyiklin.com/rolefit-ai](https://xinyiklin.com/rolefit-ai/)
 💻 **Code:** [github.com/xinyiklin/rolefit-ai](https://github.com/xinyiklin/rolefit-ai)
+
+### ⚒️ [JakeForge](https://jakeforge.xinyiklin.com) — Self-Hosted LaTeX Resume Editor
+A focused extraction of RoleFit AI's editor into a standalone Jake's-style resume editor — inline structured editing, drag-and-drop reordering, faithful LaTeX styling, and one-click PDF / .tex export via Tectonic.
+
+- **On-page structured editing** with drag-and-drop sections, entries, and bullets (@dnd-kit)
+- **Faithful Jake's template rendering** with layout, spacing, and typography controls
+- **Dockerized and deployed to AWS EC2** (custom domain, HTTPS) via a GitHub Actions CI/CD pipeline
+- **Privacy-first**: resume lives in localStorage; rendering only calls the app's own LaTeX endpoints
+
+🔗 **Live demo:** [jakeforge.xinyiklin.com](https://jakeforge.xinyiklin.com)
+💻 **Code:** [github.com/xinyiklin/jakeforge](https://github.com/xinyiklin/jakeforge)
 
 ---
 
@@ -43,7 +56,7 @@ A local-first webapp that imports a job posting (Workday / Greenhouse), then run
 
 **Data & Storage:** PostgreSQL, Cloudflare R2 / S3-compatible object storage
 
-**Tooling & Deployment:** Git, Docker, Render, Vercel, ESLint, Prettier, pre-commit hooks
+**Tooling & Deployment:** Git, Docker, AWS (Amplify, RDS, EC2), GitHub Actions CI/CD, Render, ESLint, Prettier, pre-commit hooks
 
 ---
 
