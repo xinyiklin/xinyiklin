@@ -18,31 +18,33 @@ A portfolio-grade EHR demo covering scheduling, clinical charting, billing, docu
 - **Typed end-to-end** via OpenAPI codegen (drf-spectacular + openapi-typescript)
 - **Deployed** on AWS Amplify (frontend) + Render (backend), with PostgreSQL on Amazon RDS, Cloudflare R2 object storage, and Docker Compose for local dev
 
-🔗 **Live demo:** [careflow.xinyiklin.com](https://careflow.xinyiklin.com)
+🔗 **Live demo:** [careflow.xinyiklin.com](https://careflow.xinyiklin.com) — clinician app at [clinician.xinyiklin.com](https://clinician.xinyiklin.com), patient portal at [patient.xinyiklin.com](https://patient.xinyiklin.com)
 💻 **Code:** [github.com/xinyiklin/careflow](https://github.com/xinyiklin/careflow)
 
-### 📄 [RoleFit AI](https://xinyiklin.com/rolefit-ai/) — Local-First Resume Tailoring Workflow
-A local-first webapp that imports a job posting, scores how well your resume actually fits it, and runs honest, evidence-based AI polish — no fabricated achievements, strict recruiter-style review.
+### 📄 [RoleFit AI](https://xinyiklin.com/rolefit-ai/) — Local-First Resume Tailoring Workbench
+A local-first workbench that imports a job posting, scores how well your resume actually fits it, and runs honest, evidence-grounded AI polish on a real typeset editing surface — no fabricated achievements, strict recruiter-style review.
 
-- **Recruiter-style review engine** that scores resume-to-role fit, capping scores at what the resume actually evidences
-- **Multi-provider AI polish** across 10+ hosted, local, and CLI backends (Claude / OpenAI / Gemini / OpenRouter / Ollama and more) with a deterministic local fallback
-- **Anti-fabrication by design**: schema-validated, section-scoped suggestions surfaced as accept/edit/discard diffs, a grounded-output sanitizer, and 120+ offline eval probes
-- **Job-link import** (Workday / Greenhouse and more) plus a browser fit-check extension
-- **LaTeX/PDF export** via Tectonic and an on-disk application tracker — everything stays on your machine
+- **Recruiter-style review engine** that scores resume-to-role fit and refuses to score above what the resume actually evidences
+- **Multi-provider AI polish** across 10+ hosted, local, and CLI backends (Claude Code / Codex / Antigravity CLIs, OpenAI / Anthropic / Gemini / OpenRouter and more, or fully local via Ollama)
+- **Anti-fabrication by design**: prompt-injection fencing, a grounded-output sanitizer, an offline anti-fabrication eval suite, and every suggested edit surfaced as reviewable accept/edit/discard diffs
+- **Built on the shared Typeset engine** — the editor *is* the preview: direct editing on the exported page layout, client-side PDF export, and portable `.resume` files, no external toolchain
+- **Job-link import** (Workday-aware, with a generic fallback) plus a Chrome/Firefox extension that fit-checks any posting in-page and imports it in one click
+- **On-disk application tracker** with table and calendar views — everything stays on your machine
 
 🔗 **Live demo:** [xinyiklin.com/rolefit-ai](https://xinyiklin.com/rolefit-ai/)
 💻 **Code:** [github.com/xinyiklin/rolefit-ai](https://github.com/xinyiklin/rolefit-ai)
 
-### ⚒️ [JakeForge](https://jakeforge.xinyiklin.com) — Self-Hosted LaTeX Resume Editor
-A focused extraction of RoleFit AI's editor into a standalone Jake's-style resume editor — inline structured editing, drag-and-drop reordering, faithful LaTeX styling, and one-click PDF / .tex export via Tectonic.
+### 📝 [Typeset](https://typeset.xinyiklin.com) — Browser-Native Resume Editor & Typesetting Engine
+A WYSIWYG resume editor built on a from-scratch deterministic typesetting engine — edit the rendered page directly and export a pixel-faithful PDF that the app renders itself. Runs entirely in your browser; your resume never leaves your device.
 
-- **On-page structured editing** with drag-and-drop sections, entries, and bullets (@dnd-kit)
-- **Faithful Jake's template rendering** with layout, spacing, and typography controls
+- **From-scratch layout engine** (measure → line-break → blocks → layout) shared by the editor, browser print, and a client-side pdf-lib PDF emitter — the editor and the exported PDF render glyph-identically, verified by an automated font-parity suite
+- **Direct editing on the engine-rendered page**: structured document model, inline formatting marks, and real undo/redo with exact caret restoration
+- **Strict versioned `.resume` file format** with browser autosave, plus print-aware typography — three bundled font families (Latin Modern, Source Serif 4, Source Sans 3), 6–48 pt sizes, margins, and spacing controls
+- **Engine and editor extracted into npm workspace packages** (`@typeset/engine`, `@typeset/editor`) powering both Typeset and RoleFit AI
 - **Dockerized and deployed to AWS EC2** (custom domain, HTTPS) via a GitHub Actions CI/CD pipeline
-- **Privacy-first**: resume lives in localStorage; rendering only calls the app's own LaTeX endpoints
 
-🔗 **Live demo:** [jakeforge.xinyiklin.com](https://jakeforge.xinyiklin.com)
-💻 **Code:** [github.com/xinyiklin/jakeforge](https://github.com/xinyiklin/jakeforge)
+🔗 **Live app:** [typeset.xinyiklin.com](https://typeset.xinyiklin.com)
+💻 **Code:** [github.com/xinyiklin/typeset](https://github.com/xinyiklin/typeset)
 
 ---
 
