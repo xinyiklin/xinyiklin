@@ -21,17 +21,16 @@ A portfolio-grade EHR demo covering scheduling, clinical charting, billing, docu
 🔗 **Live demo:** [careflow.xinyiklin.com](https://careflow.xinyiklin.com) — clinician app at [clinician.xinyiklin.com](https://clinician.xinyiklin.com), patient portal at [patient.xinyiklin.com](https://patient.xinyiklin.com)
 💻 **Code:** [github.com/xinyiklin/careflow](https://github.com/xinyiklin/careflow)
 
-### 📄 [RoleFit AI](https://xinyiklin.com/rolefit-ai/) — Local-First Resume Tailoring Workbench
-A local-first workbench that imports a job posting, scores how well your resume actually fits it, and runs honest, evidence-grounded AI polish on a real typeset editing surface — no fabricated achievements, strict recruiter-style review.
+### 📄 [RoleFit AI](https://rolefit.xinyiklin.com/) — Browser-Primary, Local-First Job Application Workbench
+RoleFit combines resume tailoring, recruiter-style review, and application tracking in the browser while a small Electron companion manages the local server and AI providers.
 
-- **Recruiter-style review engine** that scores resume-to-role fit and refuses to score above what the resume actually evidences
-- **Multi-provider AI polish** across 10+ hosted, local, and CLI backends (Claude Code / Codex / Antigravity CLIs, OpenAI / Anthropic / Gemini / OpenRouter and more, or fully local via Ollama)
-- **Anti-fabrication by design**: prompt-injection fencing, a grounded-output sanitizer, an offline anti-fabrication eval suite, and every suggested edit surfaced as reviewable accept/edit/discard diffs
-- **Built on the shared Typeset engine** — the editor *is* the preview: direct editing on the exported page layout, client-side PDF export, and portable `.resume` files, no external toolchain
-- **Job-link import** (Workday-aware, with a generic fallback) plus a Chrome/Firefox extension that fit-checks any posting in-page and imports it in one click
-- **On-disk application tracker** with table and calendar views — everything stays on your machine
+- **Evidence-grounded AI workflow** with prompt-injection fencing, output sanitization, offline adversarial evals, and reviewable edits instead of silent resume rewrites
+- **Five explicit providers**: Claude Code, Codex, and Antigravity through provider-owned CLI sessions, plus OpenAI and Claude APIs with keys encrypted locally by the companion
+- **Built on the shared Typeset engine** — edit the exported page directly, generate a deterministic client-side PDF, and save the structured document as a portable `.resume` file
+- **Workday-aware job import** with AI distillation, deterministic fallback extraction, duplicate checks, and a fail-closed multi-stage polish/review workflow
+- **Local application tracker** with table and calendar views; no RoleFit account or cloud workspace, and only the inputs required for the selected AI action leave the device
 
-🔗 **Live demo:** [xinyiklin.com/rolefit-ai](https://xinyiklin.com/rolefit-ai/)
+🔗 **Product site:** [rolefit.xinyiklin.com](https://rolefit.xinyiklin.com/)
 💻 **Code:** [github.com/xinyiklin/rolefit-ai](https://github.com/xinyiklin/rolefit-ai)
 
 ### 📝 [Typeset](https://typeset.xinyiklin.com) — Browser-Native Resume Editor & Typesetting Engine
@@ -58,7 +57,9 @@ A WYSIWYG resume editor built on a from-scratch deterministic typesetting engine
 
 **Data & Storage:** PostgreSQL, Cloudflare R2 / S3-compatible object storage
 
-**Tooling & Deployment:** Git, Docker, AWS (Amplify, RDS, EC2), GitHub Actions CI/CD, Render, ESLint, Prettier, pre-commit hooks
+**Desktop & Local Runtime:** Electron, loopback Node services, OS-encrypted credential storage
+
+**Tooling & Deployment:** Git, Docker, AWS (Amplify, RDS, EC2), GitHub Actions CI/CD, GitHub Pages, Render, ESLint, Prettier, pre-commit hooks
 
 ---
 
