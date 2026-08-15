@@ -38,18 +38,30 @@ A WYSIWYG resume editor built on a from-scratch deterministic typesetting engine
 
 - **From-scratch layout engine** (measure → line-break → blocks → layout) shared by the editor, browser print, and a client-side pdf-lib PDF emitter — the editor and the exported PDF render glyph-identically, verified by an automated font-parity suite
 - **Direct editing on the engine-rendered page**: structured document model, inline formatting marks, and real undo/redo with exact caret restoration
-- **Strict versioned `.resume` file format** with browser autosave, plus print-aware typography — three bundled font families (Latin Modern, Source Serif 4, Source Sans 3), 6–48 pt sizes, margins, and spacing controls
-- **Engine and editor extracted into npm workspace packages** (`@typeset/engine`, `@typeset/editor`) powering both Typeset and RoleFit AI
-- **Dockerized and deployed to AWS EC2** (custom domain, HTTPS) via a GitHub Actions CI/CD pipeline
+- **Strict versioned `.resume` file format** with browser autosave, plus print-aware typography — six bundled font families, three of them metrically compatible with Times New Roman, Calibri, and Arial so page count survives a round trip through a word processor
+- **Engine and editor live as npm workspace packages** (`@typeset/engine`, `@typeset/editor`) inside the RoleFit AI monorepo, powering both Typeset and RoleFit from one source of truth
+- **Dockerized and deployed to AWS EC2** (custom domain, HTTPS) via a path-filtered GitHub Actions CI/CD pipeline
 
 🔗 **Live app:** [typeset.xinyiklin.com](https://typeset.xinyiklin.com)
-💻 **Code:** [github.com/xinyiklin/typeset](https://github.com/xinyiklin/typeset)
+💻 **Code:** [github.com/xinyiklin/rolefit-ai](https://github.com/xinyiklin/rolefit-ai) — `apps/typeset` + `packages/engine` / `packages/editor`
+
+### 🧰 [Machine Bootstrap](https://github.com/xinyiklin/machine-bootstrap) — Portable AI-Agent Workspace Setup
+The tooling behind how I work with coding agents: one-time, idempotent seeding of agent guidance, shared skills, and a delivery workflow across a workspace of independent sibling repositories — without turning that workspace into a parent repo that silently owns every project's instructions.
+
+- **Sibling-only ownership model** — the workspace root holds no live guidance; each project owns its own `AGENTS.md` / `CLAUDE.md` after seeding and is never re-synced against the template source
+- **Idempotent Node initializers** that create only missing files, preserve existing ones, refuse unsafe targets (filesystem root, `$HOME`, Git-owned workspaces), and roll back only run-owned files on failure
+- **`.gitignore` environment policy verified through Git itself** rather than by pattern matching — ambiguous or ineffective rules stop for manual review before any write
+- **Supply-chain-pinned shared skills**: every skill pinned by repository, revision, and content SHA-256, with a missing-only installer and drift detection
+- **Provider-neutral workflow packages** (Product Partner → Delivery Lead → Verifier, with explicit approval gates) compiled into deterministic Claude and Codex agent adapters
+- **Verified on Linux and Windows** in CI against a disposable regression suite covering rollback, concurrency, and fail-closed paths
+
+💻 **Code:** [github.com/xinyiklin/machine-bootstrap](https://github.com/xinyiklin/machine-bootstrap)
 
 ---
 
 ## 🛠 Tech Stack
 
-**Languages:** Python, TypeScript, JavaScript, Java, C++, SQL, HTML/CSS
+**Languages:** Python, TypeScript, JavaScript, C++, SQL, HTML/CSS
 
 **Frontend:** React, TypeScript, Vite, React Query, React Router, Tailwind CSS
 
@@ -59,7 +71,7 @@ A WYSIWYG resume editor built on a from-scratch deterministic typesetting engine
 
 **Desktop & Local Runtime:** Electron, loopback Node services, OS-encrypted credential storage
 
-**Tooling & Deployment:** Git, Docker, AWS (Amplify, RDS, EC2), GitHub Actions CI/CD, GitHub Pages, Render, ESLint, Prettier, pre-commit hooks
+**Tooling & Deployment:** Git, Docker, npm workspaces (monorepo), AWS (Amplify, RDS, EC2), GitHub Actions CI/CD, GitHub Pages, Cloudflare, Render, ESLint, Prettier, pre-commit hooks
 
 ---
 
